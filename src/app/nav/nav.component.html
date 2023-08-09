@@ -1,53 +1,52 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container-fluid box">
-    <a
-      class="navbar-brand portofolio ms-4 portofolio"
-      routerLinkActive="active"
-      routerLink="/home"
-      ><b>Porto<span>Folio</span></b></a
-    >
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div id="navbarSupportedContent">
-      <ul class="nav justify-content-end me-5">
-        <li class="nav-item mx-2">
-          <a
-            class="nav-link"
-            routerLinkActive="active"
-            routerLink="/home"
-            href="#"
-            >Home</a
-          >
-        </li>
-        <li class="nav-item mx-2">
-          <a
-            class="nav-link"
-            routerLinkActive="active"
-            routerLink="/portofolio"
-            href="#"
-            >Portofolio</a
-          >
-        </li>
-        <li class="nav-item mx-2" >
-          <!-- Tampilan sebelum login -->
-          <a class="nav-link" routerLinkActive="active" routerLink="/login"
-            >Login</a
-          >
-        </li>
-        <li class="nav-item mx-2" >
-          <!-- Tampilan setelah login -->
-          <a class="nav-link brader">Logout</a>
-        </li>
-      </ul>
-    </div>
+      <a class="navbar-brand portofolio ms-4 portofolio" routerLinkActive="active" routerLink="/home"><b>porto<span>folio</span></b></a
+  >
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="navbarSupportedContent">
+    <ul class="nav justify-content-end me-5">
+      <li class="nav-item mx-2">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          routerLink="/home"
+          href="#"
+          >Home</a
+        >
+      </li>
+      <li class="nav-item mx-2">
+        <a
+          class="nav-link"
+          routerLinkActive="active"
+          routerLink="/portofolio"
+          href="#"
+          >Portofolio</a
+        >
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link" routerLinkActive="active" *ngIf="IsLoggingIn" routerLink="login"
+          >Login</a
+        >
+        <a
+          class="nav-link"
+          style="cursor: pointer"
+          *ngIf="!IsLoggingIn"
+          (click)="logout()"
+          Active="active"
+          >Logout</a
+        >
+      </li>
+    </ul>
   </div>
+</div>
 </nav>
