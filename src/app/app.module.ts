@@ -26,7 +26,7 @@ import { EditComponent } from './edit/edit.component';
     AppRoutingModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp({
-      apiKey: 'AIzaSyAkwGjKPdhoQfoj6w_rhlu5AvSnxcrVE1Q',
+      apiKey: 'AIzaSyCJgXXYwn9ShHDkc7I2lwsLxs8SJNGaNJ4',
       authDomain: 'portofolio-1d5b1.firebaseapp.com',
       projectId: 'portofolio-1d5b1',
       storageBucket: 'portofolio-1d5b1.appspot.com',
