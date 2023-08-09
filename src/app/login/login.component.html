@@ -1,10 +1,11 @@
 <div class="row justify-content-center">
     <div class="card col-6">
         <div class="card-body">
-            <form>
+            <form [formGroup]="loginform">
                 <h2 class="card-title mt-3">LOGIN</h2>
                 <div class="card-isi">
                     <div class="form-floating mb-3">
+
                         <input type="email" formControlName="username" class="form-control" id="floatingInput" placeholder="name@example.com" />
                         <label for="floatingInput">Email address</label>
                     </div>
@@ -13,7 +14,7 @@
                         <label for="floatingPassword">Password</label>
                     </div>
                 </div>
-                <a class="btn mt-3">Submit</a>
+                <a (click)="OnLogin()" class="btn mt-3">Submit</a>
             </form>
         </div>
     </div>
