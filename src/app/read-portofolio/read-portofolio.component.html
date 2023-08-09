@@ -1,13 +1,13 @@
 <div class="container">
-  <div class="row alas">
+  <div class="row alas" >
     <div class="col-sm-12 col-lg-5 halaman1 my-4 mx-auto">
       <h1 class="mt-5 ms-3 mb-0">
-        <b></b>
+        <b>{{userData['nama']}}</b>
       </h1>
-      <h4 class="ms-3"></h4>
-      <img class="mt-3 mx-auto d-block" alt="" />
+      <h4 class="ms-3">keahlian</h4>
+      <img class="mt-3 mx-auto d-block" src="{{userData['foto']}}" alt="asd" />
       <h3 class="ms-3 mt-5"><b>PROFIL PRIBADI</b></h3>
-      <label class="ms-3 mt-3"></label>
+      <label class="ms-3 mt-3">{{userData['deskripsi']}}</label>
     </div>
 
     <div class="col-sm-12 col-lg-7 halaman2 my-auto">
@@ -15,35 +15,32 @@
         <div class="col-sm-12 col-lg-4 alas">
           <div class="pendidikan">
             <h2><b>PENDIDIKAN</b></h2>
-            <label></label>
+            <label>{{userData['pendidikan']}}</label>
           </div>
           <div class="pemisah"></div>
           <div class="keahlian mt-5">
             <h2><b>KEAHLIAN</b></h2>
-            <label></label>
-            <label></label>
+            <label>1. {{userData['keahlian1']}}</label>
+            <label>2. {{userData['keahlian2']}}</label>
             <br />
-            <label></label>
+            <label>3. {{userData['keahlian3']}}</label>
           </div>
           <div class="pengalaman mt-5 mb-3">
             <h2><b>PENGALAMAN</b></h2>
             <label class="mb-0"
-              ><b>1.</b><b></b></label
+              ><b>1.</b><b>{{userData['pengalaman']}}</b></label
             >
             <label class="mb-0"
-              ><b>2.</b></label
-            >
-            <label class="mb-0"
-              ><b>3.</b></label
+              ><b>2. {{userData['pengalaman1']}}</b></label
             >
           </div>
         </div>
         <div class="col-sm-12 col-lg-4 alas1">
           <div class="kontak">
             <h1><b>KONTAK</b></h1>
-            <label></label>
+            <label>{{userData['telp']}}</label>
             <h4>
-              <b></b>
+              <b>{{userData['link']}}</b>
             </h4>
           </div>
         </div>

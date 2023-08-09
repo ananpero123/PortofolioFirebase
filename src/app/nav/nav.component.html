@@ -37,15 +37,15 @@
             >Portofolio</a
           >
         </li>
-        <li class="nav-item mx-2" >
+        <li class="nav-item mx-2" *ngIf="!auth.isLoggedIn">
           <!-- Tampilan sebelum login -->
           <a class="nav-link" routerLinkActive="active" routerLink="/login"
             >Login</a
           >
         </li>
-        <li class="nav-item mx-2" >
+        <li class="nav-item mx-2" *ngIf="auth.isLoggedIn">
           <!-- Tampilan setelah login -->
-          <a class="nav-link brader">Logout</a>
+          <a class="nav-link brader" (click)="logout()">Logout</a>
         </li>
       </ul>
     </div>
