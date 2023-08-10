@@ -1,38 +1,56 @@
-import { Component,OnInit } from '@angular/core';
-import { AuthService } from 'src/app/Services/auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Porto } from '../Model/Porto';
-import { ApinampilService } from '../Services/apinampil.service';
-import { Firestore, collection, addDoc,collectionData } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../Service/authentication.service';
+
 
 @Component({
   selector: 'app-portofolio',
   templateUrl: './portofolio.component.html',
-  styleUrls: ['./portofolio.component.css']
+  styleUrls: ['./portofolio.component.css'],
 })
 export class PortofolioComponent implements OnInit {
-  userData!: Observable<any>;
 
-  constructor(private firestore:Firestore){
-    this.getData();
+  form!: FormGroup;
+  IsLoggingIn: boolean = false;
+
+
+  constructor(
+    private authenticationService: AuthenticationService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.authenticationService.isLoggedIn.subscribe((loggedIn) => {
+      this.IsLoggingIn = !loggedIn;
+    });
+
+    this.form = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
   }
 
-  getData(){
-    const colectionInstance = collection(this.firestore, 'portofolio')
-    collectionData(colectionInstance, {idField: 'id'}).subscribe(val => {
-      console.log(val);
-    })
-
-    this.userData = collectionData(colectionInstance, {idField: 'id'});
+  logout() {
+    this.authenticationService.Logout();
   }
 
-  ngOnInit(): void {
-    
+  login() {
+    this.authenticationService
+      .Login({
+        email: this.form.value.email,
+        password: this.form.value.password,
+      })
+      .subscribe(
+        () => {
+          alert('Login Berhasil ^-^');
+          this.router.navigate(['home']);
+        },
+        (error: any) => {
+          alert('Login gagal x-x');
+        }
+      );
   }
 }
-
-
-
-
-

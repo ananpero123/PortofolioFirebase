@@ -1,25 +1,56 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/Services/auth.service';
+
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../Service/authentication.service';
+
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css']
+  styleUrls: ['./nav.component.css'],
 })
 export class NavComponent implements OnInit {
-  constructor(public auth: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
-    this.auth.checkLoginStatus(); // Pastikan status login disinkronkan saat komponen dimuat
+  form!: FormGroup;
+  IsLoggingIn: boolean = false;
+
+  constructor(
+    private authenticationService: AuthenticationService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.authenticationService.isLoggedIn.subscribe(loggedIn => {
+      this.IsLoggingIn = !loggedIn;
+    });
+
+    this.form = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
   }
 
   logout() {
-    this.auth.signout();
-    this.navigateToLogin();
+    this.authenticationService.Logout();
   }
 
-  private navigateToLogin() {
-    this.router.navigate(['login']); // Arahkan kembali ke halaman login setelah logout
+  login() {
+    this.authenticationService
+      .Login({
+        email: this.form.value.email,
+        password: this.form.value.password,
+      })
+      .subscribe(
+        () => {
+          alert('Login Berhasil ^-^');
+          this.router.navigate(['home']);
+        },
+        (error: any) => {
+          alert('Login gagal x-x');
+        }
+      );
+
   }
 }
