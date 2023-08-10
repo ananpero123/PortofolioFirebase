@@ -1,7 +1,9 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../Service/authentication.service';
+
 
 @Component({
   selector: 'app-portofolio',
@@ -9,8 +11,10 @@ import { AuthenticationService } from '../Service/authentication.service';
   styleUrls: ['./portofolio.component.css'],
 })
 export class PortofolioComponent implements OnInit {
+
   form!: FormGroup;
   IsLoggingIn: boolean = false;
+
 
   constructor(
     private authenticationService: AuthenticationService,

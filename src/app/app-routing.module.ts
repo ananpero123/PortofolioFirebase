@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { PortofolioComponent } from './portofolio/portofolio.component';
 import { ReadPortofolioComponent } from './read-portofolio/read-portofolio.component';
 import { LoginComponent } from './login/login.component';
 import { EditComponent } from './edit/edit.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},

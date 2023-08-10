@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../Service/authentication.service';
+
 
 @Component({
   selector: 'app-nav',
@@ -9,6 +11,7 @@ import { AuthenticationService } from '../Service/authentication.service';
   styleUrls: ['./nav.component.css'],
 })
 export class NavComponent implements OnInit {
+
   form!: FormGroup;
   IsLoggingIn: boolean = false;
 
@@ -48,5 +51,6 @@ export class NavComponent implements OnInit {
           alert('Login gagal x-x');
         }
       );
+
   }
 }
