@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Firestore, doc, DocumentSnapshot, DocumentData, getDoc, updateDoc } from '@angular/fire/firestore';
 import { Observable, Subscriber } from 'rxjs';
-import { Porto } from '../Model/Porto';
+
 
 @Component({
   selector: 'app-edit',
@@ -20,13 +20,13 @@ export class EditComponent implements OnInit {
       if (this.userId) {
         this.getData();
         console.log(this.userId);
-        
+
       }
     });
   }
 
   async ngOnInit() {
-    
+
   }
 
   async getData() {
@@ -48,7 +48,7 @@ export class EditComponent implements OnInit {
     }
   }
 
-  
+
 
   onChange = ($event : Event)  => {
     const target = $event.target as HTMLInputElement;
@@ -82,7 +82,7 @@ export class EditComponent implements OnInit {
   }
 
 
-  
-  
+
+
 }
 

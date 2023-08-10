@@ -1,8 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { AuthService } from 'src/app/Services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Porto } from '../Model/Porto';
-import { ApinampilService } from '../Services/apinampil.service';
 import { Firestore, collection, addDoc,collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -13,8 +10,12 @@ import { Observable } from 'rxjs';
 })
 export class PortofolioComponent implements OnInit {
   userData!: Observable<any>;
+  form!: FormGroup;
+  IsLoggingIn: boolean = false;
 
-  constructor(private firestore:Firestore){
+  constructor(private firestore:Firestore, private authenticationService: AuthenticationService,
+    private fb: FormBuilder,
+    private router: Router){
     this.getData();
   }
 
@@ -28,7 +29,34 @@ export class PortofolioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.authenticationService.isLoggedIn.subscribe((loggedIn) => {
+      this.IsLoggingIn = !loggedIn;
+    });
+    this.form = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
+  }
+
+  logout() {
+    this.authenticationService.Logout();
+  }
+
+  login() {
+    this.authenticationService
+      .Login({
+        email: this.form.value.email,
+        password: this.form.value.password,
+      })
+      .subscribe(
+        () => {
+          alert('Login Berhasil ^-^');
+          this.router.navigate(['home']);
+        },
+        (error: any) => {
+          alert('Login gagal x-x');
+        }
+      );
   }
 }
 
