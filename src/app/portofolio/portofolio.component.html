@@ -1,0 +1,27 @@
+<tr *ngFor="let data of userData | async">
+  <div class="row justify-content-center">
+    <div
+      [routerLink]="['/read-portofolio/', data.id]"
+      class="card col-6 mt-3 mx-4"
+      style="width: 18rem"
+    >
+      <img
+        style="cursor: pointer"
+        src="{{data.foto}}"
+        class="align-self-center mt-4 curso"
+        alt="https://static.wikia.nocookie.net/telletubbies/images/3/35/Url.jpg/revision/latest/scale-to-width-down/200?cb=20230429024202 "
+      />
+      <div class="card-body">
+        <h5 class="card-title mt-3">{{data.nama}}</h5>
+        <a
+          [routerLink]="['/edit/', data.id]"
+          routerLinkActive="active"
+          routerLink="edit"
+          class="btn btn-dark mt-3"
+          >edit</a
+        >
+        
+      </div>
+    </div>
+  </div>
+</tr>

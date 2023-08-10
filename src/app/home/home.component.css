@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
+.title-home{
+    font-family: 'Aclonica', sans-serif;
+    color: black;
+}
+
+.halaman1{
+    width: 80vh;
+    height: 58vh;
+    background-color: #F1901D;
+    position: fixed;
+    top: 21vw;
+    z-index: -1;
+    border-radius: 10% 10% 0 0;
+}
+
+.background > .halaman2 > label {
+    font-family: 'Aclonica', sans-serif;    
+    margin-bottom: 5vh;
+    font-size: 3vh;
+}
+
+.background > .halaman2 > div > a {
+    font-family: 'Aclonica', sans-serif;
+    text-decoration: none;
+    color: black;
+    padding: 2vh;
+    background-color: #9ADFD5;
+    border-radius: 50px;
+}
+
+.garis{
+    width: 1vh;
+    height: 55vh;
+    border-radius: 50px;
+    position: fixed;
+    background-color: black;
+}
+
+.dekor{
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    left: 80vh;
+    top: 29vh;
+    position: absolute;
+    transform: rotate(20deg);
+    background-color: black;
+}
+
+.dekor::after{
+    width: 25px;
+    height: 25px;
+    content: "";
+    border-radius: 50px;
+    left: 2.5vh;
+    top: 7vh;
+    position: absolute;
+    padding: 10px;
+    transform: rotate(20deg);
+    background-color: black;
+}
+.dekor::before{
+    width: 25px;
+    height: 25px;
+    content: "";
+    border-radius: 50px;
+    left: 5.2vh;
+    top: 14.5vh;
+    position: absolute;
+    padding: 10px;
+    transform: rotate(20deg);
+    background-color: black;
+}
+
+@media screen and (max-width: 440px) {
+    .title-home{
+        font-family: 'Aclonica', sans-serif;
+        color: black;
+        margin-top: 100px;
+    }
+
+    .halaman1{
+        width: 58vh;
+        height: 100vh;
+        background-color: #F1901D;
+        position: fixed;
+        top: 21vw;
+        z-index: -1;
+        border-radius: 30px;
+        margin-left: -12px;
+    }
+}

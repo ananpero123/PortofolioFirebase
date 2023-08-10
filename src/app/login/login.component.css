@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
+.row > .card{
+    border: none;
+    background-color: white;
+    border-radius: 25px;
+    width: 500px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.card-isi{
+    margin-top: 90px;   
+    margin-bottom: 40px; 
+    width: 400px;
+}
+
+h2 {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 10px;
+}
+
+a {
+    /* font-family: 'Aclonica', sans-serif; */
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    color: black;
+    background-color: #9ADFD5;
+    border: none;
+    border-radius: 30px;
+    width: 100px;
+    position: relative;
+    left: -37%;
+    
+}
+
+a:hover{
+    transform: scale(1.1);
+    transition: all 0.4s ease;
+    background-color: aqua;
+}
+
+input{
+    background-color: #D9D9D9;
+    border-radius: 30px;
+    
+}
+
+@media screen and (max-width: 440px) {
+    .row > .card{
+        border: none;
+        background-color: white;
+        border-radius: 25px;
+        width: 330px;
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .card-isi{
+        margin-top: 90px;   
+        margin-bottom: 40px; 
+        width: 300px;
+    }
+
+    a{
+        left: -32%;
+    }
+}

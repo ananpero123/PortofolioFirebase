@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+  <div class="card">
+    <h2 class="card-title mt-3">Edit Portofolio</h2>
+    <div class="card-body">
+      <div class="card-isi">
+        <div class="card-isi-sub">
+          <label for="">Nama</label>
+          <input type="text"  [(ngModel)]="userData['nama']" name="nama" />
+        </div>
+        <div class="card-isi-sub">
+          <label for="">Keahlian</label>
+          <input type="text"  [(ngModel)]="userData['keahlian']" name="keahlian" />
+        </div>
+        <div class="card-isi-sub">
+          <label for="">Asal Sekolah</label>
+          <input type="text" [(ngModel)]="userData['pendidikan']" name="pendidikan" />
+        </div>
+        <div class="card-isi-sub">
+          <label for="">Diskripsi Diri</label>
+          <textarea
+            name=""
+            id=""
+            [(ngModel)]="userData['deskripsi']" name="deskripsi"
+            cols="20"
+            rows="5"
+          ></textarea>
+        </div>
+      </div>
+      <div class="card-isi">
+        <div class="card-isi-sub">
+          <label for="">No. Hp</label>
+          <input type="text"  [(ngModel)]="userData['telp']" name="telp" />
+        </div>
+        <div class="card-isi-sub">
+          <label for="">Telegram</label>
+          <input type="text"  [(ngModel)]="userData['link']" name="link" />
+        </div>
+        <div class="card-isi-sub">
+          <label for="">Keahlian 1</label>
+          <input type="text"  [(ngModel)]="userData['keahlian1']" name="keahlian1" />
+        </div>
+        <div class="card-isi-sub">
+          <label for="">Keahlian 2</label>
+          <input type="text"  [(ngModel)]="userData['keahlian2']" name="keahlian2" />
+        </div>
+        <div class="card-isi-sub">
+          <label for="">Keahlian 3</label>
+          <input type="text" [(ngModel)]="userData['keahlian3']" name="keahlian3" />
+        </div>
+      </div>
+      <div class="card-isi">
+        <div class="card-isi">
+          <div class="card-isi-sub">
+            <label for=" ">Pengalaman 1</label>
+            <input type="text "  [(ngModel)]="userData['pengalaman']" name="pengalaman" />
+          </div>
+
+          <div class="card-isi-sub">
+            <label for=" ">Pengalaman 2</label>
+            <input type="text "  [(ngModel)]="userData['pengalaman1']" name="pengalaman1" />
+          </div>
+
+          <div class="card-isi-sub">
+            <label for=" ">Pengalaman 3</label>
+            <input type="text "  [(ngModel)]="userData['pengalaman2']" name="pengalaman2" />
+          </div>
+          <div class="card-isi-sub">
+            <label for="">Foto</label>
+            <input type="file" (change)="onChange($event)" />
+            <div >
+              <!-- <img src="{{userData['foto']}}" alt="" /> -->
+            </div>
+          </div>
+        </div>
+        <button class="btn mt-3" (click)="saveData()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
