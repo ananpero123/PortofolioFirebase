@@ -4,7 +4,7 @@
       <h1 class="mt-5 ms-3 mb-0">
         <b>{{userData['nama']}}</b>
       </h1>
-      <h4 class="ms-3">keahlian</h4>
+      <h4 class="ms-3">{{userData['keahlian']}}</h4>
       <img class="mt-3 mx-auto d-block" src="{{userData['foto']}}" alt="asd" />
       <h3 class="ms-3 mt-5"><b>PROFIL PRIBADI</b></h3>
       <label class="ms-3 mt-3">{{userData['deskripsi']}}</label>
@@ -21,6 +21,7 @@
           <div class="keahlian mt-5">
             <h2><b>KEAHLIAN</b></h2>
             <label>1. {{userData['keahlian1']}}</label>
+            <br>
             <label>2. {{userData['keahlian2']}}</label>
             <br />
             <label>3. {{userData['keahlian3']}}</label>

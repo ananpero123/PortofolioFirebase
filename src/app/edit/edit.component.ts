@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Firestore, doc, DocumentSnapshot, DocumentData, getDoc, updateDoc } from '@angular/fire/firestore';
 import { Observable, Subscriber } from 'rxjs';
 import { Porto } from '../Model/Porto';
@@ -14,7 +14,7 @@ export class EditComponent implements OnInit {
   userId: string | null = null;
   userData: DocumentData  = {};
 
-  constructor(private route: ActivatedRoute, private firestore: Firestore) {
+  constructor(private route: ActivatedRoute, private firestore: Firestore,private router: Router) {
     this.route.paramMap.subscribe(params => {
       this.userId = params.get('id');
       if (this.userId) {
@@ -41,9 +41,9 @@ export class EditComponent implements OnInit {
 
   async saveData() {
     if (this.userData && this.userId) {
+      this.router.navigate(['portofolio']);
       const docRef = doc(this.firestore, 'portofolio', this.userId);
       await updateDoc(docRef, this.userData);
-      
       console.log('Data updated successfully!111');
     }
   }
